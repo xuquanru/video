@@ -1,0 +1,4 @@
+rootProject.name = 'video'
+include 'video-test'
+include 'video-onvif'
+

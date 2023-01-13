@@ -1,0 +1,5 @@
+dependencies {
+    implementation   'org.springframework.boot:spring-boot-starter-webflux:2.3.12.RELEASE'
+    implementation 'io.projectreactor:reactor-core:3.5.1'
+}
+

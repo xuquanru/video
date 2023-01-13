@@ -1,0 +1,44 @@
+/*公共项目*/
+allprojects {
+    //指定语言
+    apply plugin: 'java'
+    //指定编辑器
+    apply plugin: 'idea'
+    //配置项目信息
+    group 'io.github.fairyspace'
+    version '1.0.0'
+    //配置仓库
+    repositories{
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+
+//配置子工程
+subprojects {
+    //指定编译版本
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    //配置字符编码
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+    //配置全局依赖版本信息
+    ext {
+        junitVersion = '5.7.2'
+    }
+    //配置子模块依赖
+    dependencies {
+        testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version:"${junitVersion}"
+        testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version:"${junitVersion}"
+    }
+
+
+}
+
+
